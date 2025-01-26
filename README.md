@@ -15,29 +15,53 @@
 <br/>
 
 -- Create Database
+<br/>
 CREATE DATABASE AdmissionSystem;
+<br/>
 USE AdmissionSystem;
+<br/>
 
 -- Create the registration table
+<br/>
 CREATE TABLE registration (
+<br/>
     id INT AUTO_INCREMENT PRIMARY KEY, -- Unique identifier for each registration
+    <br/>
     name VARCHAR(100) NOT NULL,
+    <br/>
     dob DATE NOT NULL,
+    <br/>
     email VARCHAR(255) NOT NULL UNIQUE,
+    <br/>
     mobile_number VARCHAR(15) NOT NULL,
+    <br/>
     address TEXT NOT NULL,
+    <br/>
     course_selection VARCHAR(100) NOT NULL,
+    <br/>
     password VARCHAR(255) NOT NULL
+    <br/>
 );
+<br/>
 
 -- Create the login table
+<br/>
 CREATE TABLE login (
+<br/>
     email VARCHAR(255) NOT NULL,
+    <br/>
     password VARCHAR(255) NOT NULL,
+    <br/>
     captcha_code VARCHAR(10) NOT NULL,
+    <br/>
     PRIMARY KEY (email),
+    <br/>
     FOREIGN KEY (email) REFERENCES registration(email) 
+    <br/>
         ON DELETE CASCADE 
+        <br/>
         ON UPDATE CASCADE
+        <br/>
 );
+<br/>
 Save the folder on webapps on tomacate server then connect the database to project using root and password after that Run this program on localhost:8080
